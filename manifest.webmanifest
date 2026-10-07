@@ -1,0 +1,25 @@
+{
+    "id": "./",
+    "name": "Fiji Reef Guardian",
+    "short_name": "Reef Guardian",
+    "description": "Guide a sea turtle through Fiji's marine habitats, collect ocean waste and avoid dangerous fishing equipment.",
+    "start_url": "./",
+    "scope": "./",
+    "display": "standalone",
+    "orientation": "landscape",
+    "background_color": "#081c34",
+    "theme_color": "#12677e",
+    "lang": "en",
+    "categories": [
+        "games",
+        "education"
+    ],
+    "icons": [
+        {
+            "src": "icons/icon.svg",
+            "sizes": "any",
+            "type": "image/svg+xml",
+            "purpose": "any maskable"
+        }
+    ]
+}

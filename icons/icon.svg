@@ -1,0 +1,182 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+
+    <defs>
+        <linearGradient id="ocean" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#2fc3cb"/>
+            <stop offset="100%" stop-color="#082c61"/>
+        </linearGradient>
+
+        <radialGradient id="shell" cx="40%" cy="35%" r="70%">
+            <stop offset="0%" stop-color="#b5db70"/>
+            <stop offset="100%" stop-color="#347846"/>
+        </radialGradient>
+    </defs>
+
+    <!-- Ocean background -->
+    <rect
+        width="512"
+        height="512"
+        rx="90"
+        fill="url(#ocean)"
+    />
+
+    <!-- Bubbles -->
+    <g
+        fill="none"
+        stroke="#dcfbff"
+        stroke-width="8"
+        opacity="0.75"
+    >
+        <circle cx="80" cy="100" r="17"/>
+        <circle cx="125" cy="60" r="9"/>
+        <circle cx="430" cy="120" r="13"/>
+    </g>
+
+    <!-- Rear flippers -->
+    <g fill="#4eaa77">
+        <ellipse
+            cx="188"
+            cy="205"
+            rx="60"
+            ry="24"
+            transform="rotate(-28 188 205)"
+        />
+
+        <ellipse
+            cx="188"
+            cy="335"
+            rx="60"
+            ry="24"
+            transform="rotate(28 188 335)"
+        />
+    </g>
+
+    <!-- Front flippers -->
+    <g fill="#64bd82">
+        <ellipse
+            cx="330"
+            cy="190"
+            rx="86"
+            ry="28"
+            transform="rotate(-30 330 190)"
+        />
+
+        <ellipse
+            cx="330"
+            cy="350"
+            rx="86"
+            ry="28"
+            transform="rotate(30 330 350)"
+        />
+    </g>
+
+    <!-- Turtle head -->
+    <ellipse
+        cx="392"
+        cy="270"
+        rx="57"
+        ry="44"
+        fill="#63bb80"
+    />
+
+    <!-- Outer shell -->
+    <ellipse
+        cx="266"
+        cy="270"
+        rx="120"
+        ry="94"
+        fill="#285e3c"
+    />
+
+    <!-- Inner shell -->
+    <ellipse
+        cx="266"
+        cy="270"
+        rx="98"
+        ry="75"
+        fill="url(#shell)"
+    />
+
+    <!-- Shell pattern -->
+    <g
+        fill="none"
+        stroke="#285e3d"
+        stroke-width="10"
+        stroke-linecap="round"
+    >
+        <ellipse
+            cx="266"
+            cy="270"
+            rx="42"
+            ry="33"
+        />
+
+        <path d="M228 242 L190 212"/>
+        <path d="M304 242 L342 212"/>
+        <path d="M228 298 L190 328"/>
+        <path d="M304 298 L342 328"/>
+        <path d="M266 237 L266 195"/>
+        <path d="M266 303 L266 345"/>
+    </g>
+
+    <!-- Eye -->
+    <circle
+        cx="415"
+        cy="257"
+        r="12"
+        fill="#ffffff"
+    />
+
+    <circle
+        cx="419"
+        cy="257"
+        r="6"
+        fill="#092333"
+    />
+
+    <!-- Smile -->
+    <path
+        d="M405 284 Q424 298 442 281"
+        fill="none"
+        stroke="#24523b"
+        stroke-width="6"
+        stroke-linecap="round"
+    />
+
+    <!-- Sand -->
+    <path
+        d="M0 458 Q120 430 250 465 T512 454 L512 512 L0 512 Z"
+        fill="#dfbd76"
+    />
+
+    <!-- Coral -->
+    <g
+        fill="none"
+        stroke-linecap="round"
+        stroke-width="18"
+    >
+        <path
+            d="M70 490 L70 408 M70 450 L38 422 M70 435 L105 398"
+            stroke="#ff7684"
+        />
+
+        <path
+            d="M440 490 L440 410 M440 454 L405 425 M440 438 L473 402"
+            stroke="#ffb347"
+        />
+    </g>
+
+    <!-- App name -->
+    <text
+        x="256"
+        y="478"
+        text-anchor="middle"
+        fill="#06294a"
+        font-family="Arial, sans-serif"
+        font-size="35"
+        font-weight="bold"
+    >
+        REEF GUARDIAN
+    </text>
+
+</svg>

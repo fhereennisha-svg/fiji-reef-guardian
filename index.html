@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="theme-color"
+        content="#12677e"
+    >
+
+    <meta
+        name="description"
+        content="Protect Fiji's marine habitats in an environmental p5.js game."
+    >
+
+    <title>Fiji Reef Guardian</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<link
+    rel="manifest"
+    href="manifest.webmanifest"
+>
+
+<link
+    rel="icon"
+    href="icons/icon.svg"
+    type="image/svg+xml"
+>
+
+<link rel="stylesheet" href="style.css">
+
+<body>
+    <header class="page-header">
+        <p class="eyebrow">
+            Environmental JavaScript Game
+        </p>
+
+        <h1>Fiji Reef Guardian</h1>
+
+        <p class="introduction">
+            Guide a sea turtle through three marine habitats,
+            remove ocean waste and avoid dangerous fishing
+            equipment.
+        </p>
+    </header>
+
+    <main class="page-layout">
+        <section class="game-section">
+            <!--
+                The JavaScript game creates the canvas
+                inside this container.
+            -->
+            <div id="game-container"></div>
+
+            <!-- Mobile controls -->
+            <div
+                class="mobile-controls"
+                aria-label="Mobile game controls"
+            >
+                <button
+                    id="move-up"
+                    class="control-button up-button"
+                    type="button"
+                    aria-label="Move turtle up"
+                >
+                    ▲
+                </button>
+
+                <button
+                    id="move-left"
+                    class="control-button left-button"
+                    type="button"
+                    aria-label="Move turtle left"
+                >
+                    ◀
+                </button>
+
+                <button
+                    id="move-down"
+                    class="control-button down-button"
+                    type="button"
+                    aria-label="Move turtle down"
+                >
+                    ▼
+                </button>
+
+                <button
+                    id="move-right"
+                    class="control-button right-button"
+                    type="button"
+                    aria-label="Move turtle right"
+                >
+                    ▶
+                </button>
+
+                <button
+                    id="mobile-action"
+                    class="action-button"
+                    type="button"
+                    aria-label="Start game or continue"
+                >
+                    Start
+                </button>
+            </div>
+
+            <p
+                id="game-status"
+                class="game-status"
+                aria-live="polite"
+            >
+                Select a difficulty and press Space or Start.
+            </p>
+        </section>
+
+        <aside class="instructions">
+            <h2>How to play</h2>
+
+            <ul>
+                <li>
+                    Select a difficulty using
+                    <strong>1, 2 or 3</strong>.
+                </li>
+
+                <li>
+                    Press <strong>Space</strong> or the
+                    <strong>Start</strong> button to begin.
+                </li>
+
+                <li>
+                    On a computer, move using the
+                    <strong>arrow keys</strong>.
+                </li>
+
+                <li>
+                    On a phone, move using the
+                    <strong>touch controls</strong>.
+                </li>
+
+                <li>
+                    Collect plastic bottles, cans, bags,
+                    ropes and fishing nets.
+                </li>
+
+                <li>
+                    Avoid boats and dangerous fishing hooks.
+                </li>
+
+                <li>
+                    Collect bubble shields for protection.
+                </li>
+
+                <li>
+                    Press <strong>N</strong> or the action
+                    button after completing an area.
+                </li>
+
+                <li>
+                    Press <strong>R</strong> or the action
+                    button after winning or losing.
+                </li>
+            </ul>
+
+            <h2>Marine areas</h2>
+
+            <ol>
+                <li>Coral Lagoon</li>
+                <li>Mangrove Channel</li>
+                <li>Deep Ocean Reef</li>
+            </ol>
+
+            <div class="mission-box">
+                <h2>Environmental mission</h2>
+
+                <p>
+                    Protect marine animals by collecting waste
+                    and avoiding abandoned or active fishing
+                    equipment.
+                </p>
+            </div>
+        </aside>
+    </main>
+
+    <footer class="page-footer">
+        <p>
+            Created as a JavaScript and p5.js learning project.
+        </p>
+    </footer>
+
+    <!--
+        These scripts must remain at the bottom of body.
+
+        First: load the p5.js library.
+        Second: load your own javascript.js file.
+    -->
+   <script src="p5.min.js"></script>
+<script src="javascript.js"></script>
+
+<script>
+    if ("serviceWorker" in navigator) {
+        window.addEventListener(
+            "load",
+            async () => {
+                try {
+                    const registration =
+                        await navigator.serviceWorker.register(
+                            "./service-worker.js"
+                        );
+
+                    console.log(
+                        "Service worker registered:",
+                        registration.scope
+                    );
+                } catch (error) {
+                    console.error(
+                        "Service worker registration failed:",
+                        error
+                    );
+                }
+            }
+        );
+    }
+</script>
+</body>
+</html>

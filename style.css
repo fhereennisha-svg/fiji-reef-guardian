@@ -1,0 +1,561 @@
+/* --------------------------------------------------
+   BASIC PAGE SETTINGS
+-------------------------------------------------- */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    color-scheme: dark;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 2rem;
+
+    overflow-x: hidden;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    color: #effcff;
+
+    background:
+        radial-gradient(
+            circle at top,
+            #23778a 0%,
+            #173b61 45%,
+            #081c34 100%
+        );
+
+    background-attachment: fixed;
+}
+
+
+/* --------------------------------------------------
+   HEADER
+-------------------------------------------------- */
+
+.page-header {
+    max-width: 1400px;
+    margin: 0 auto 2rem;
+    text-align: center;
+}
+
+.eyebrow {
+    margin: 0 0 0.5rem;
+
+    color: #9ee9dc;
+
+    font-size: 0.9rem;
+    font-weight: bold;
+    letter-spacing: 0.22rem;
+    text-transform: uppercase;
+}
+
+h1 {
+    margin: 0;
+
+    color: #e9fdff;
+
+    font-size:
+        clamp(
+            2.5rem,
+            7vw,
+            5.5rem
+        );
+
+    line-height: 1.05;
+
+    text-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.introduction {
+    max-width: 850px;
+    margin: 1.5rem auto 0;
+
+    color: #e8fbff;
+
+    font-size: 1.25rem;
+    line-height: 1.6;
+}
+
+
+/* --------------------------------------------------
+   MAIN PAGE LAYOUT
+-------------------------------------------------- */
+
+.page-layout {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 900px)
+        minmax(280px, 420px);
+
+    gap: 2rem;
+
+    justify-content: center;
+    align-items: start;
+
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.game-section {
+    min-width: 0;
+}
+
+
+/* --------------------------------------------------
+   GAME CANVAS
+-------------------------------------------------- */
+
+#game-container {
+    width: 100%;
+    max-width: 900px;
+
+    margin: 0 auto;
+    overflow: hidden;
+
+    /*
+        This colour remains visible while the canvas
+        is loading.
+    */
+    background-color: #0b4265;
+
+    border:
+        4px solid
+        rgba(255, 255, 255, 0.8);
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 1.5rem 4rem
+        rgba(0, 0, 0, 0.35);
+}
+
+/*
+    p5.js controls the internal canvas size.
+
+    These rules make it responsive without collapsing
+    its height.
+*/
+#game-container canvas {
+    display: block;
+
+    width: 100% !important;
+    height: auto !important;
+
+    margin: 0;
+}
+
+
+/* --------------------------------------------------
+   MOBILE TOUCH CONTROLS
+-------------------------------------------------- */
+
+.mobile-controls {
+    display: grid;
+
+    grid-template-areas:
+        ". up action"
+        "left down right";
+
+    grid-template-columns:
+        repeat(3, 4.5rem);
+
+    grid-template-rows:
+        repeat(2, 4.5rem);
+
+    gap: 0.6rem;
+    justify-content: center;
+
+    width: fit-content;
+    margin: 1.25rem auto;
+
+    /*
+        Prevent the phone from scrolling or selecting
+        text while the player presses a control.
+    */
+    touch-action: none;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.control-button,
+.action-button {
+    min-width: 0;
+    min-height: 0;
+    padding: 0;
+
+    border:
+        2px solid
+        rgba(255, 255, 255, 0.75);
+
+    border-radius: 15px;
+
+    color: white;
+
+    font-family: inherit;
+    font-size: 1.6rem;
+    font-weight: bold;
+
+    background:
+        linear-gradient(
+            145deg,
+            #177f94,
+            #0b4d72
+        );
+
+    box-shadow:
+        0 5px 12px
+        rgba(0, 0, 0, 0.3);
+
+    cursor: pointer;
+    touch-action: none;
+
+    transition:
+        transform 0.1s ease,
+        background-color 0.1s ease,
+        color 0.1s ease;
+}
+
+.control-button:hover,
+.action-button:hover {
+    border-color: #ffda69;
+}
+
+.control-button:focus-visible,
+.action-button:focus-visible {
+    outline: 4px solid #ffda69;
+    outline-offset: 3px;
+}
+
+.control-button:active,
+.control-button.active,
+.action-button:active,
+.action-button.active {
+    transform:
+        translateY(2px)
+        scale(0.96);
+
+    color: #082540;
+    background: #ffca55;
+}
+
+.up-button {
+    grid-area: up;
+}
+
+.left-button {
+    grid-area: left;
+}
+
+.down-button {
+    grid-area: down;
+}
+
+.right-button {
+    grid-area: right;
+}
+
+.action-button {
+    grid-area: action;
+
+    padding: 0.4rem;
+
+    font-size: 1rem;
+    line-height: 1.1;
+}
+
+
+/* --------------------------------------------------
+   GAME STATUS
+-------------------------------------------------- */
+
+.game-status {
+    min-height: 1.5rem;
+    margin: 1rem 0 0;
+
+    color: #d7fcff;
+
+    font-size: 1rem;
+    line-height: 1.5;
+    text-align: center;
+}
+
+
+/* --------------------------------------------------
+   INSTRUCTIONS
+-------------------------------------------------- */
+
+.instructions {
+    padding: 1.75rem;
+
+    background-color:
+        rgba(4, 25, 47, 0.88);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.3);
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 1.5rem 4rem
+        rgba(0, 0, 0, 0.25);
+}
+
+.instructions h2 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+
+    color: #ffdb72;
+
+    font-size: 1.8rem;
+}
+
+.instructions > h2:not(:first-child) {
+    margin-top: 2rem;
+}
+
+.instructions ul,
+.instructions ol {
+    padding-left: 1.5rem;
+}
+
+.instructions li {
+    margin: 0.75rem 0;
+    line-height: 1.45;
+}
+
+.instructions strong {
+    color: #ffdb72;
+}
+
+
+/* --------------------------------------------------
+   MISSION BOX
+-------------------------------------------------- */
+
+.mission-box {
+    margin-top: 2rem;
+    padding: 1.25rem;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(30, 133, 124, 0.45),
+            rgba(14, 74, 105, 0.45)
+        );
+
+    border-left: 5px solid #5ee5c3;
+    border-radius: 12px;
+}
+
+.mission-box h2 {
+    margin: 0 0 0.75rem;
+
+    font-size: 1.3rem;
+}
+
+.mission-box p {
+    margin: 0;
+    line-height: 1.55;
+}
+
+
+/* --------------------------------------------------
+   FOOTER
+-------------------------------------------------- */
+
+.page-footer {
+    margin-top: 3rem;
+
+    color: #a9d6df;
+
+    text-align: center;
+}
+
+
+/* --------------------------------------------------
+   TABLET LAYOUT
+-------------------------------------------------- */
+
+@media (max-width: 1050px) {
+    body {
+        padding: 1rem;
+    }
+
+    .page-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .game-section,
+    .instructions {
+        width: 100%;
+        max-width: 900px;
+        margin: 0 auto;
+    }
+}
+
+
+/* --------------------------------------------------
+   MOBILE PHONE LAYOUT
+-------------------------------------------------- */
+
+@media (max-width: 600px) {
+    body {
+        padding: 0.5rem;
+    }
+
+    .page-header {
+        margin-bottom: 1rem;
+    }
+
+    .eyebrow {
+        font-size: 0.7rem;
+        letter-spacing: 0.12rem;
+    }
+
+    h1 {
+        font-size: 2.4rem;
+    }
+
+    .introduction {
+        margin-top: 0.75rem;
+
+        font-size: 0.95rem;
+        line-height: 1.45;
+    }
+
+    #game-container {
+        border-width: 2px;
+        border-radius: 10px;
+    }
+
+    .mobile-controls {
+        grid-template-columns:
+            repeat(3, 4rem);
+
+        grid-template-rows:
+            repeat(2, 4rem);
+
+        gap: 0.5rem;
+        margin: 0.8rem auto;
+    }
+
+    .control-button {
+        font-size: 1.35rem;
+    }
+
+    .action-button {
+        font-size: 0.85rem;
+    }
+
+    .game-status {
+        margin-top: 0.5rem;
+
+        font-size: 0.9rem;
+    }
+
+    .instructions {
+        padding: 1.25rem;
+        border-radius: 12px;
+    }
+
+    .instructions h2 {
+        font-size: 1.45rem;
+    }
+
+    .instructions li {
+        font-size: 0.95rem;
+    }
+}
+
+
+/* --------------------------------------------------
+   VERY SMALL PHONE SCREENS
+-------------------------------------------------- */
+
+@media (max-width: 380px) {
+    .mobile-controls {
+        grid-template-columns:
+            repeat(3, 3.6rem);
+
+        grid-template-rows:
+            repeat(2, 3.6rem);
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+}
+
+
+/* --------------------------------------------------
+   LANDSCAPE PHONE MODE
+-------------------------------------------------- */
+
+@media (
+    max-height: 500px
+) and (
+    orientation: landscape
+) {
+    body {
+        padding: 0.4rem;
+    }
+
+    .page-header {
+        margin-bottom: 0.5rem;
+    }
+
+    .eyebrow,
+    .introduction {
+        display: none;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .page-layout {
+        display: block;
+    }
+
+    .instructions {
+        display: none;
+    }
+
+    #game-container {
+        max-width: 760px;
+    }
+
+    .mobile-controls {
+        position: fixed;
+        right: 0.6rem;
+        bottom: 0.6rem;
+
+        z-index: 10;
+
+        margin: 0;
+
+        grid-template-columns:
+            repeat(3, 3.4rem);
+
+        grid-template-rows:
+            repeat(2, 3.4rem);
+
+        opacity: 0.88;
+    }
+
+    .game-status,
+    .page-footer {
+        display: none;
+    }
+}
